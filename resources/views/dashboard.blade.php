@@ -1,3 +1,4 @@
+// filepath: /resources/views/dashboard.blade.php
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -14,6 +15,9 @@
                     <div class="mt-6">
                         <a href="{{ route('note.index') }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">View Notes</a>
                         <a href="{{ route('note.create') }}" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Create New Note</a>
+                        @if(Auth::user()->isAdmin())
+                            <a href="{{ route('admin.index') }}" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Admin Panel</a>
+                        @endif
                     </div>
                 </div>
             </div>
